@@ -13,7 +13,7 @@ $mailAccess = preg_match('(.|@)', $mail);
 //     $mailAccess = "denied";
 // }
 
-$ageCheck = is_int($age);
+$ageCheck = is_numeric($age);
 
 $stringLen = strlen($name);
 
@@ -36,7 +36,13 @@ if ($stringLen > 3) {
     echo "accesso nome negato  ";
 }
 
-if ($mailAccess == 1) {
+// if ($mailAccess == 1) {
+//     echo "accesso email riuscito  ";
+// } else {
+//     echo "accesso email negato  ";
+// }
+
+if ((strpos($mail, "@")) && (strpos($mail, "."))) {
     echo "accesso email riuscito  ";
 } else {
     echo "accesso email negato  ";

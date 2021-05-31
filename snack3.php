@@ -44,14 +44,22 @@ $posts = [
 
 
 //tramite questo ciclo prendiamo per ogni array innestato (quindi le date) i suoi array e stampiamo title author e text
+$dati_extra_keys = array_keys($posts);
 
-for ($i = 0; $i < count($posts); $i++) {
-    
-    
-    
+for ($i = 0; $i < count($dati_extra_keys); $i++){
+    $date = $dati_extra_keys[$i];
+    echo $date . " ";
+    $postList = $posts[$date];
+
+    for ($y = 0; $y < count($postList); $y++){
+        $post = $postList[$y];
+
+        echo $post["title"] . " ";
+        echo $post["author"] . " ";
+        echo $post["text"] . " ";
+    }
 
 }
-
 
 
 
@@ -60,33 +68,3 @@ for ($i = 0; $i < count($posts); $i++) {
 
 <!-- esempio in classe di florian -->
 
-<?php
-
-$array_md[] = [
-    "name" => "Iolanda",
-    "surname" => "Rossi",
-    "email" => "iolanda.rossi@gmail.com",
-    "dati_extra" => [
-        "indirizzo" => "aasdasd",
-        "città" => "Roma"
-    ]
-];
-
-
-for ($i = 0; $i < count($array_md); $i++) {
-    $currentItem = $array_md[$i];
-    $fullName = $currentItem["name"] . " " . $currentItem["surname"];
-    echo $fullName ;
-    echo $currentItem["email"];
-}
-
-$dati_extra = $currentItem["dati_extra"];
-
-$dati_extra_keys = array_keys($dati_extra);
-
-for ($y = 0; $y < count($dati_extra_keys); $y++) {
-    $key = $dati_extra_keys[$y];
-    $value = $dati_extra[$key];
-
-    echo "<li><strong>" . $key . "</strong>: " . $value . "</li>";
-}
